@@ -3,15 +3,77 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bitactro - Financial Calculators</title>
+<title>SIP Calculator | Home Loan EMI Calculator (2025) - Free Online Tools</title>
+<meta name="description" content="Calculate SIP returns & Home Loan EMI instantly ✓ Monthly SIP Investment Calculator ✓ Home Loan EMI Calculator with Amortization Schedule ✓ Free Online Tools with Charts">
+<meta name="keywords" content="SIP calculator, mutual fund SIP calculator, home loan EMI calculator, EMI calculator with chart, monthly SIP calculator, loan EMI calculator, investment calculator">
+<meta name="author" content="Bitactro">
+<meta property="og:title" content="Financial Calculators - Home Loan EMI & SIP Calculator">
+<meta property="og:description" content="Calculate Home Loan EMI, SIP investments, and more with our free financial calculators. Make informed financial decisions with interactive tools.">
+<meta property="og:image" content="" id="ogImage">
+<meta property="og:url" content="" id="ogUrl">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="" id="canonicalUrl">
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#4b6cb7">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Bitactro Financial Calculators",
+  "description": "Free online calculators for Home Loan EMI and SIP investment planning",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "INR"
+  }
+}
+</script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
 body{font-family:sans-serif;background:var(--bg);color:var(--text);margin:0;padding:20px;transition:.3s}
 :root.light{--bg:#f0f0f0;--text:#222;--card-bg:#fff;--header-bg:#ddd;--border:#ccc;}
 :root.dark{--bg:linear-gradient(135deg,#4b6cb7,#182848);--text:#fff;--card-bg:rgba(255,255,255,0.1);--header-bg:rgba(255,255,255,0.2);--border:rgba(255,255,255,0.3);}
 h1,h2{text-align:center;}
+.brand-title {
+    font-size: 2.5em;
+    font-weight: bold;
+    background: linear-gradient(45deg, #2196F3, #00BCD4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    margin: 0.5em 0;
+    position: relative;
+    display: inline-block;
+    padding: 0 20px;
+}
+.brand-title::before, .brand-title::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 30px;
+    height: 2px;
+    background: #2196F3;
+    transform: translateY(-50%);
+}
+.brand-title::before {
+    left: -20px;
+}
+.brand-title::after {
+    right: -20px;
+}
+.brand-container {
+    text-align: center;
+    margin-bottom: 1em;
+    animation: fadeIn 1s ease-in;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 .top-bar{text-align:center;margin-bottom:10px;}
 .top-bar button{margin-left:10px;padding:6px 12px;border:none;border-radius:5px;background:var(--header-bg);color:var(--text);cursor:pointer;}
 .switch{position:relative;display:inline-block;width:50px;height:24px;vertical-align:middle;}
@@ -80,8 +142,15 @@ canvas{max-height:160px;width:100%!important;margin:10px auto;display:block;}
 <label class="switch"><input type="checkbox" id="themeToggle"><span class="slider"></span></label>
 <button onclick="shareLink()">Share 🔗</button>
 </div>
-<h1>Bitactro</h1>
-<h2>Financial Calculators</h2>
+<header>
+    <div class="brand-container">
+        <h1 class="brand-title">Bitactro.com</h1>
+    </div>
+    <h1>Free SIP Calculator & Home Loan EMI Calculator</h1>
+    <h2>Calculate SIP Returns & Loan EMI Instantly</h2>
+    <p>Best online calculators for SIP investment planning and home loan EMI calculation. Get instant results with visual charts and detailed breakdowns.</p>
+</header>
+<main>
 <div class="accordion">
 
 <!-- 🏠 Home Loan Calculator -->
@@ -191,6 +260,106 @@ canvas{max-height:160px;width:100%!important;margin:10px auto;display:block;}
 </div>
 
 </div>
+
+<!-- FAQ Section for SEO -->
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)">❓ Frequently Asked Questions</div>
+<div class="card-content">
+    <div itemscope itemtype="https://schema.org/FAQPage">
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <h3 itemprop="name">What is SIP Calculator?</h3>
+            <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <div itemprop="text">
+                    <p>A SIP Calculator is a free online tool that helps you calculate the returns on your Systematic Investment Plan (SIP). Enter your monthly investment amount, expected return rate, and investment period to instantly see your potential wealth growth and total investment returns.</p>
+                </div>
+            </div>
+        </div>
+
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <h3 itemprop="name">How to calculate Home Loan EMI?</h3>
+            <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <div itemprop="text">
+                    <p>To calculate your home loan EMI:</p>
+                    <ol>
+                        <li>Enter your loan amount</li>
+                        <li>Select your interest rate</li>
+                        <li>Choose loan tenure in years</li>
+                        <li>Get instant EMI amount, total interest payable, and amortization schedule</li>
+                    </ol>
+                    <p>Our calculator also shows you a detailed breakup of principal and interest components.</p>
+                </div>
+            </div>
+        </div>
+
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <h3 itemprop="name">How is monthly SIP return calculated?</h3>
+            <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <div itemprop="text">
+                    <p>Monthly SIP returns are calculated using the compound interest formula for regular monthly investments. Our calculator considers:</p>
+                    <ul>
+                        <li>Monthly investment amount</li>
+                        <li>Expected annual return rate</li>
+                        <li>Investment duration</li>
+                        <li>Power of compounding</li>
+                    </ul>
+                    <p>The calculator shows both your total investment and the wealth gained through compounding.</p>
+                </div>
+            </div>
+        </div>
+
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <h3 itemprop="name">What are the benefits of using an EMI calculator?</h3>
+            <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <div itemprop="text">
+                    <p>Using our EMI calculator offers several advantages:</p>
+                    <ul>
+                        <li>Instantly calculate your monthly EMI</li>
+                        <li>View complete year-wise amortization schedule</li>
+                        <li>Compare different loan scenarios</li>
+                        <li>Plan your finances better with visual charts</li>
+                        <li>Make informed decisions about loan tenure and amount</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- Articles Section -->
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)">📚 Helpful Articles</div>
+<div class="card-content">
+    <div style="display: grid; gap: 15px;">
+        <a href="articles/sip-vs-lumpsum" style="text-decoration: none;">
+            <div style="padding: 15px; background: var(--card-bg); border-radius: 8px; transition: 0.3s;">
+                <h3 style="margin: 0 0 10px 0; color: #2196F3;">SIP vs Lumpsum Investment - Which is Better?</h3>
+                <p style="margin: 0; color: var(--text);">Learn the pros and cons of SIP and lumpsum investments, and find out which method suits your investment goals better.</p>
+            </div>
+        </a>
+        <a href="articles/best-home-loan-rates" style="text-decoration: none;">
+            <div style="padding: 15px; background: var(--card-bg); border-radius: 8px; transition: 0.3s;">
+                <h3 style="margin: 0 0 10px 0; color: #2196F3;">How to Get the Best Home Loan Rate</h3>
+                <p style="margin: 0; color: var(--text);">Discover tips and strategies to secure the most competitive home loan interest rates and save money on your EMIs.</p>
+            </div>
+        </a>
+    </div>
+</div>
+</div>
+
+<script src="config.js"></script>
+<script>
+    // Update meta tags with domain from config
+    document.getElementById('ogImage').content = `https://${config.domain}${config.socialPreviewImage}`;
+    document.getElementById('ogUrl').content = `https://${config.domain}/calculator`;
+    document.getElementById('canonicalUrl').href = `https://${config.domain}/calculator`;
+
+    // Update schema.org data
+    const schema = document.querySelector('script[type="application/ld+json"]');
+    const schemaData = JSON.parse(schema.textContent);
+    schemaData.applicationCategory = "FinanceApplication";
+    schema.textContent = JSON.stringify(schemaData, null, 2);
+</script>
 <script src="theme.js"></script>
 <script src="utils.js"></script>
 <script src="charts.js"></script>

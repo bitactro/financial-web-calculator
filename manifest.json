@@ -4,7 +4,7 @@
     "start_url": ".",
     "display": "standalone",
     "background_color": "#4b6cb7",
-    "description": "Financial calculators",
+    "description": "Free online calculators for SIP investment planning and home loan EMI calculation",
     "icons": [
         {
             "src": "icon-192.png",
