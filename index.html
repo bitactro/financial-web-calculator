@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bitactro - Financial Calculators</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#4b6cb7">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+body{font-family:sans-serif;background:var(--bg);color:var(--text);margin:0;padding:20px;transition:.3s}
+:root.light{--bg:#f0f0f0;--text:#222;--card-bg:#fff;--header-bg:#ddd;--border:#ccc;}
+:root.dark{--bg:linear-gradient(135deg,#4b6cb7,#182848);--text:#fff;--card-bg:rgba(255,255,255,0.1);--header-bg:rgba(255,255,255,0.2);--border:rgba(255,255,255,0.3);}
+h1,h2{text-align:center;}
+.top-bar{text-align:center;margin-bottom:10px;}
+.top-bar button{margin-left:10px;padding:6px 12px;border:none;border-radius:5px;background:var(--header-bg);color:var(--text);cursor:pointer;}
+.switch{position:relative;display:inline-block;width:50px;height:24px;vertical-align:middle;}
+.switch input{opacity:0;width:0;height:0;}
+.slider{position:absolute;cursor:pointer;top:0;left:0;right:0;bottom:0;background:#ccc;transition:.4s;border-radius:24px;}
+.slider:before{position:absolute;content:"";height:18px;width:18px;left:3px;bottom:3px;background:#fff;transition:.4s;border-radius:50%;}
+input:checked+.slider{background:#2196F3;}
+input:checked+.slider:before{transform:translateX(26px);}
+.accordion{max-width:600px;margin:20px auto;}
+.card{background:var(--card-bg);border-radius:10px;margin-bottom:10px;overflow:hidden;box-shadow:0 4px 8px rgba(0,0,0,0.3);}
+.card-header{padding:15px;cursor:pointer;font-size:1.2em;background:var(--header-bg);}
+.card-content{max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s ease;padding:0 15px;}
+.card-content.open{max-height:3000px;padding:15px;}
+.input-group{display:flex;align-items:center;gap:10px;margin-top:5px;}
+input[type=range]{flex:1;}
+input[type=number],select{width:120px;padding:4px;border:none;border-radius:5px;}
+:root.light input[type=number],
+:root.light input[type=range],
+:root.light select {
+  border: 1px solid #888;
+  background: #fff;
+  color: #222;
+}
+.result{margin-top:10px;font-size:1.1em;}
+.error{color:red;margin-top:5px;}
+table{width:100%;border-collapse:collapse;margin-top:5px;}
+th,td{border:1px solid var(--border);padding:4px;font-size:0.9em;text-align:right;}
+canvas{max-height:160px;width:100%!important;margin:10px auto;display:block;}
+.spotlight {
+  box-shadow: 0 0 8px #2196F3;
+  border: 2px solid #2196F3;
+  font-weight: bold;
+}
+.amount-spotlight {
+  margin-left: 8px;
+  font-size: 1.1em;
+  color: #2196F3;
+  font-weight: bold;
+}
+.highlight-result { background: #ffe066; color: #222; padding: 4px 8px; border-radius: 5px; font-weight: bold; }
+</style>
+</head>
+<body>
+<div class="top-bar">
+<label class="switch"><input type="checkbox" id="themeToggle"><span class="slider"></span></label>
+<button onclick="shareLink()">Share 🔗</button>
+</div>
+<h1>Bitactro</h1>
+<h2>Financial Calculators</h2>
+<div class="accordion">
+
+<!-- 🏠 Home Loan Calculator -->
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)">🏠 Home Loan Calculator</div>
+<div class="card-content open">
+<label>Loan Amount (₹):</label>
+<div class="input-group">
+  <input type="range" id="loanAmount" min="0" max="30000000" value="50000" step="500">
+  <input type="text" id="loanAmountNum" value="5,0000" min="0" max="500000000" class="spotlight">
+</div>
+<label>Interest Rate (%):</label>
+<div class="input-group">
+  <input type="range" id="loanRate" min="1" max="25" value="8" step="0.1">
+  <input type="number" id="loanRateNum" value="8" min="1" max="25" step="0.1">
+</div>
+<label>Tenure (Years):</label>
+<div class="input-group">
+  <input type="range" id="loanYears" min="1" max="35" value="10" step="1" list="loanYearsTicks">
+  <input type="number" id="loanYearsNum" value="10" min="1" max="35">
+  <datalist id="loanYearsTicks">
+    <option value="1"></option>
+    <option value="2"></option>
+    <option value="3"></option>
+    <option value="4"></option>
+    <option value="5"></option>
+    <option value="6"></option>
+    <option value="7"></option>
+    <option value="8"></option>
+    <option value="9"></option>
+    <option value="10"></option>
+    <option value="11"></option>
+    <option value="12"></option>
+    <option value="13"></option>
+    <option value="14"></option>
+    <option value="15"></option>
+    <option value="16"></option>
+    <option value="17"></option>
+    <option value="18"></option>
+    <option value="19"></option>
+    <option value="20"></option>
+    <option value="21"></option>
+    <option value="22"></option>
+    <option value="23"></option>
+    <option value="24"></option>
+    <option value="25"></option>
+    <option value="26"></option>
+    <option value="27"></option>
+    <option value="28"></option>
+    <option value="29"></option>
+    <option value="30"></option>
+    <option value="31"></option>
+    <option value="32"></option>
+    <option value="33"></option>
+    <option value="34"></option>
+    <option value="35"></option>
+  </datalist>
+</div>
+<div class="result" id="loanEMI"></div>
+<div class="result" id="loanInterest"></div>
+<div class="result" id="loanTotal"></div>
+<button onclick="downloadEMICsv()">Download EMI CSV</button>
+<button onclick="document.getElementById('emiTable').style.display='table';document.getElementById('loadMoreEMI').style.display='inline-block';">Show EMI Table</button>
+<table id="emiTable" style="display:none;">
+<thead><tr><th>Month</th><th>EMI</th><th>Principal</th><th>Interest</th><th>Balance</th></tr></thead>
+<tbody></tbody>
+</table>
+<button id="loadMoreEMI" onclick="loadMoreEMI()" style="display:none;">Load more EMI</button>
+<canvas id="loanChart"></canvas>
+</div>
+</div>
+
+<!-- 📈 SIP Calculator -->
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)">📈 SIP Calculator</div>
+<div class="card-content">
+<label>Mode:</label>
+<select id="sipMode">
+  <option value="monthly">Monthly SIP</option>
+  <option value="lumpsum">Lumpsum</option>
+</select>
+<label>Amount (₹):</label>
+<div class="input-group">
+  <input type="range" id="sipAmount" min="500" max="500000" value="5000" step="500">
+  <input type="number" id="sipAmountNum" value="5000" min="500" max="100000000">
+</div>
+<label>Annual Return Rate (%):</label>
+<div class="input-group">
+  <input type="range" id="sipRate" min="1" max="70" value="12" step="0.1">
+  <input type="number" id="sipRateNum" value="12" min="1" max="70" step="0.1">
+</div>
+<label>Tenure (Years):</label>
+<div class="input-group">
+  <input type="range" id="sipYears" min="1" max="50" value="10">
+  <input type="number" id="sipYearsNum" value="10" min="1" max="50">
+</div>
+<div class="result" id="sipMaturity"></div>
+<div class="result" id="sipProfit"></div>
+<canvas id="sipChart"></canvas>
+</div>
+</div>
+
+</div>
+<script src="theme.js"></script>
+<script src="utils.js"></script>
+<script src="charts.js"></script>
+<script src="loan.js"></script>
+<script src="sip.js"></script>
+<script>
+function toggleCard(el){el.nextElementSibling.classList.toggle('open');}
+function shareLink(){if(navigator.share)navigator.share({title:'Bitactro',url:location.href});else prompt('Copy this link:',location.href);}
+if('serviceWorker'in navigator)navigator.serviceWorker.register('sw.js');
+</script>
+</body>
+</html>

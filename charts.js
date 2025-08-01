@@ -1,0 +1,3 @@
+let loanChart,sipChart;
+function drawLoanChart(amt,interest){if(loanChart)loanChart.destroy();loanChart=new Chart(document.getElementById('loanChart'),{type:'doughnut',data:{labels:['Principal','Interest'],datasets:[{data:[amt,interest],backgroundColor:['#4b6cb7','#f39c12']}]},options:{plugins:{legend:{position:'bottom'}}}});}
+function drawSIPChart(invested,profit){if(sipChart)sipChart.destroy();sipChart=new Chart(document.getElementById('sipChart'),{type:'doughnut',data:{labels:['Invested','Profit'],datasets:[{data:[invested,profit],backgroundColor:['#27ae60','#8e44ad']}]},options:{plugins:{legend:{position:'bottom'}}}});}
