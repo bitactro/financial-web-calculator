@@ -4,21 +4,80 @@ const sipYears=document.getElementById('sipYears'),sipYearsNum=document.getEleme
 const sipMode=document.getElementById('sipMode');
 const sipMaturity=document.getElementById('sipMaturity'),sipProfit=document.getElementById('sipProfit');
 
+// Remove existing event listeners
+sipAmount.removeEventListener('input', syncSIPInput);
+sipAmountNum.removeEventListener('input', syncSIPInput);
+
 function syncSIPInput(e){
-  let min, max;
-  if(e.target.id === 'sipAmount' || e.target.id === 'sipAmountNum') {
-    min = 500; max = 100000000;
-  } else if(e.target.id === 'sipRate' || e.target.id === 'sipRateNum') {
-    min = 1; max = 70;
-  } else if(e.target.id === 'sipYears' || e.target.id === 'sipYearsNum') {
-    min = 1; max = 50;
+  if (e.target.id === 'sipRate' || e.target.id === 'sipRateNum' || 
+      e.target.id === 'sipYears' || e.target.id === 'sipYearsNum') {
+    // Handle rate and years inputs as before
+    let min = 1;
+    let max = (e.target.id.includes('Rate')) ? 70 : 50;
+    let value = Math.max(min, Math.min(max, Math.abs(+e.target.value || 0)));
+    e.target.value = value;
+    if(e.target.type === 'range') e.target.nextElementSibling.value = value;
+    else e.target.previousElementSibling.value = value;
+    calculateSIP();
   }
-  let value = Math.max(min, Math.min(max, Math.abs(+e.target.value)));
-  e.target.value = value;
-  if(e.target.type==='range') e.target.nextElementSibling.value = value;
-  else e.target.previousElementSibling.value = value;
-  calculateSIP();
 }
+
+// Handle amount slider input
+sipAmount.addEventListener('input', function(e) {
+  let min = 500;
+  let sliderMax = 1500000;
+  let value = Math.max(min, Math.min(sliderMax, Math.abs(+e.target.value || 0)));
+  e.target.value = value;
+  sipAmountNum.value = value;
+  calculateSIP();
+});
+
+// Handle amount number input
+sipAmountNum.addEventListener('input', function(e) {
+  const inputMax = 500000000;
+  let value = e.target.value;
+  
+  // Allow empty value during input
+  if (value === '') {
+    sipAmount.value = 500; // Keep slider at minimum
+    calculateSIP();
+    return;
+  }
+
+  // If there's a value, enforce maximum limit
+  value = Math.min(inputMax, Math.abs(+value || 0));
+  e.target.value = value;
+  
+  // Update slider if value is within its range
+  if (value <= 1500000) {
+    sipAmount.value = value;
+  } else {
+    sipAmount.value = 1500000;
+  }
+  calculateSIP();
+});
+
+// Handle amount input blur (when focus leaves the input)
+sipAmountNum.addEventListener('blur', function(e) {
+  let value = e.target.value;
+  
+  // If empty or less than minimum when leaving field, set to minimum
+  if (value === '' || +value < 500) {
+    value = 500;
+  }
+  
+  // Enforce limits
+  value = Math.max(500, Math.min(500000000, +value));
+  e.target.value = value;
+  
+  // Update slider if within its range
+  if (value <= 1500000) {
+    sipAmount.value = value;
+  } else {
+    sipAmount.value = 1500000;
+  }
+  calculateSIP();
+});
 
 sipAmount.addEventListener('input',syncSIPInput);
 sipAmountNum.addEventListener('input',syncSIPInput);
@@ -62,12 +121,14 @@ function formatIndianHRV(num) {
 }
 
 function calculateSIP(){
-  let amt = +sipAmount.value;
-  let maxLimit = 100000000;
+  let amt = +sipAmountNum.value; // Use number input value for calculation
   if (amt < 500) amt = 500;
-  if (amt > maxLimit) amt = maxLimit;
-  sipAmount.value = amt;
+  if (amt > 500000000) amt = 500000000;
   sipAmountNum.value = amt;
+  // Only update slider if amount is within its range
+  if (amt <= 1500000) {
+    sipAmount.value = amt;
+  }
   let rate = +sipRate.value/100, years = +sipYears.value;
   if(amt<1||rate<=0||rate>200||years<=0){
     sipMaturity.textContent='Invalid inputs'; sipProfit.textContent='';
