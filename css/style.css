@@ -191,3 +191,27 @@ canvas{max-height:160px;width:100%!important;margin:10px auto;display:block;}
 :root.dark .savings-amount {
     color: #2ecc71;
 }
+
+/* --- Footer Styles --- */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    color: var(--text);
+    opacity: 0.8;
+}
+
+/* --- MOBILE RESPONSIVE FIX --- */
+@media (max-width: 600px) {
+    .tax-comparison-container {
+        flex-direction: column; /* Stack columns vertically */
+    }
+    .input-group {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    input[type=number], select {
+        width: 100%;
+    }
+}
