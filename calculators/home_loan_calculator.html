@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home Loan EMI Calculator (2025) - Free Online Tools</title>
+<meta name="description" content="Calculate Home Loan EMI instantly ✓ Home Loan EMI Calculator with Amortization Schedule ✓ Free Online Tools with Charts">
+<meta name="keywords" content="home loan EMI calculator, EMI calculator with chart, loan EMI calculator, investment calculator">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div class="top-bar">
+<label class="switch"><input type="checkbox" id="themeToggle"><span class="slider"></span></label>
+<!-- FIX: Corrected the function call here -->
+<button onclick="shareCalculation()">Share 🔗</button>
+</div>
+<header>
+    <div class="brand-container">
+        <h1 class="brand-title">Bitactro.com</h1>
+    </div>
+    <h1>Home Loan EMI Calculator</h1>
+    <h2>Calculate Loan EMI Instantly</h2>
+</header>
+<main>
+<div class="accordion">
+
+<div class="card">
+<div class="card-header">🏠 Home Loan Calculator</div>
+<div class="card-content open">
+<label>Loan Amount (₹):</label>
+<div class="input-group">
+  <input type="range" id="loanAmount" min="0" max="30000000" value="50000" step="500">
+  <input type="text" id="loanAmountNum" value="5,0000" min="0" max="500000000" class="spotlight">
+</div>
+<label>Interest Rate (%):</label>
+<div class="input-group">
+  <input type="range" id="loanRate" min="1" max="25" value="8" step="0.1">
+  <input type="number" id="loanRateNum" value="8" min="1" max="25" step="0.1">
+</div>
+<label>Tenure (Years):</label>
+<div class="input-group">
+  <input type="range" id="loanYears" min="1" max="35" value="10" step="1" list="loanYearsTicks">
+  <input type="number" id="loanYearsNum" value="10" min="1" max="35">
+  <datalist id="loanYearsTicks">
+    <option value="1"></option>
+    <option value="5"></option>
+    <option value="10"></option>
+    <option value="15"></option>
+    <option value="20"></option>
+    <option value="25"></option>
+    <option value="30"></option>
+    <option value="35"></option>
+  </datalist>
+</div>
+<div class="result" id="loanEMI"></div>
+<div class="result" id="loanInterest"></div>
+<div class="result" id="loanTotal"></div>
+<div class="result-actions">
+  <button onclick="downloadEMICsv()">Download EMI CSV</button>
+  <button onclick="shareCalculation()">Share Results 📤</button>
+</div>
+<button onclick="document.getElementById('emiTable').style.display='table';document.getElementById('loadMoreEMI').style.display='inline-block';">Show EMI Table</button>
+<table id="emiTable" style="display:none;">
+<thead><tr><th>Month</th><th>EMI</th><th>Principal</th><th>Interest</th><th>Balance</th></tr></thead>
+<tbody></tbody>
+</table>
+<button id="loadMoreEMI" onclick="loadMoreEMI()" style="display:none;">Load more EMI</button>
+<canvas id="loanChart"></canvas>
+</div>
+</div>
+
+</div>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="../config.js"></script>
+<script src="../js/theme.js"></script>
+<script src="../js/utils.js"></script>
+<script src="../js/charts.js"></script>
+<script src="../js/loan.js"></script>
+
+<!-- FIX: Added this script block to read shared URL data -->
+<script>
+function loadSharedValues() {
+    const params = new URLSearchParams(window.location.search);
+    const loanAmount = params.get('loan_amount');
+    const loanRate = params.get('loan_rate');
+    const loanYears = params.get('loan_years');
+    
+    if (loanAmount) {
+        document.getElementById('loanAmount').value = parseFloat(loanAmount);
+        document.getElementById('loanAmountNum').value = formatIndianNumber(loanAmount);
+    }
+    if (loanRate) {
+        document.getElementById('loanRate').value = parseFloat(loanRate);
+        document.getElementById('loanRateNum').value = parseFloat(loanRate);
+    }
+    if (loanYears) {
+        document.getElementById('loanYears').value = parseFloat(loanYears);
+        document.getElementById('loanYearsNum').value = parseFloat(loanYears);
+    }
+    
+    // Trigger loan calculations to update the view
+    if (loanAmount || loanRate || loanYears) {
+        calculateLoan();
+    }
+}
+// Run the function when the page loads
+window.addEventListener('load', loadSharedValues);
+</script>
+
+</body>
+</html>

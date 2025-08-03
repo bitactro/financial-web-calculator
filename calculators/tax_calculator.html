@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- SEO: Updated Title for better keyword targeting -->
+<title>Income Tax Calculator India (FY 2025-26) - Old vs New Regime</title>
+<!-- SEO: Updated Description to be more compelling in search results -->
+<meta name="description" content="Instantly calculate your income tax for FY 2024-25 & 2025-26 with our free Indian tax calculator. Compare Old vs New Tax Regimes to find the best option for your salary, capital gains, and crypto income.">
+<!-- SEO: Updated Keywords -->
+<meta name="keywords" content="income tax calculator, tax calculator india, fy 2025-26, fy 2024-25, ay 2026-27, new tax regime, old tax regime, capital gains tax, crypto tax, tax comparison">
+<link rel="stylesheet" href="../css/style.css">
+
+<!-- SEO: Added Structured Data (Schema Markup) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Income Tax Calculator India (FY 2025-26 & 2024-25)",
+  "description": "A free online tool to calculate and compare income tax liability under the old and new tax regimes in India, including salary, capital gains, and crypto income.",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "Which tax regime is better for FY 2025-26?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The choice between the old and new tax regimes depends on your income and the deductions you can claim. The old regime is often better if you have significant deductions (like HRA, Section 80C, home loan interest), while the new regime offers lower tax rates but fewer deductions. Our calculator provides a side-by-side comparison to help you decide."
+    }
+  },{
+    "@type": "Question",
+    "name": "What is the standard deduction for FY 2025-26?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "For the Financial Year 2025-26, the standard deduction for salaried individuals is ₹75,000 under the New Tax Regime and ₹50,000 under the Old Tax Regime."
+    }
+  },{
+    "@type": "Question",
+    "name": "How is crypto taxed in India?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Income from Virtual Digital Assets (VDAs), including cryptocurrency, is taxed at a flat rate of 30% in India. No deductions are allowed against this income, and losses cannot be offset against other income sources."
+    }
+  }]
+}
+</script>
+
+</head>
+<body>
+<div class="top-bar">
+<label class="switch"><input type="checkbox" id="themeToggle"><span class="slider"></span></label>
+<button onclick="shareCalculation()">Share 🔗</button>
+</div>
+<header>
+    <div class="brand-container">
+        <h1 class="brand-title">Bitactro.com</h1>
+    </div>
+    <h1>Income Tax Calculator India</h1>
+    <h2>Compare Old vs New Regime for FY 2024-25 & 2025-26</h2>
+</header>
+<main>
+
+<!-- SEO: Added introductory content -->
+<div class="accordion">
+    <div class="card">
+        <div class="card-header">About This Calculator</div>
+        <div class="card-content open" style="max-height: 1000px;">
+            <p>Our free income tax calculator helps you easily estimate your tax liability and compare the Old and New tax regimes. By entering your income details from salary, capital gains, and crypto, you can make an informed decision and choose the most beneficial tax structure for your financial situation.</p>
+        </div>
+    </div>
+</div>
+
+<div class="accordion">
+<div class="card">
+<div class="card-header">🧾 Indian Income Tax Calculator</div>
+<div class="card-content open">
+
+    <!-- General Options -->
+    <div class="input-group">
+        <label for="financialYear">Financial Year:</label>
+        <select id="financialYear">
+            <option value="2025-26">2025-26</option>
+            <option value="2024-25">2024-25</option>
+        </select>
+    </div>
+
+    <!-- Income Details -->
+    <h3 class="category-title">Income Details</h3>
+    <div class="input-group">
+        <label for="basicSalary">Gross Annual Salary (₹):</label>
+        <input type="number" id="basicSalary" placeholder="e.g., 1200000" class="spotlight">
+    </div>
+    <div class="input-group">
+        <label for="interestIncome">Interest & Other Income (₹):</label>
+        <input type="number" id="interestIncome" placeholder="e.g., 50000">
+    </div>
+    <div class="input-group">
+        <label for="stcgIncome">Short-Term Capital Gains (on Equity):</label>
+        <input type="number" id="stcgIncome" placeholder="e.g., 20000">
+    </div>
+    <div class="input-group">
+        <label for="ltcgIncome">Long-Term Capital Gains (on Equity):</label>
+        <input type="number" id="ltcgIncome" placeholder="e.g., 125000">
+    </div>
+    <div class="input-group">
+        <label for="cryptoIncome">Income from Crypto / VDAs (30%) (₹):</label>
+        <input type="number" id="cryptoIncome" placeholder="e.g., 30000">
+    </div>
+
+    <!-- Deductions Section - Only for Old Regime -->
+    <div id="deductionsSection">
+        <h3 class="category-title">Deductions (Only for Old Regime)</h3>
+        <div class="input-group">
+            <label for="hra">HRA Exemption (₹):</label>
+            <input type="number" id="hra" placeholder="e.g., 100000">
+        </div>
+        <div class="input-group">
+            <label for="sec80c">Section 80C (e.g., PPF, ELSS) (₹):</label>
+            <input type="number" id="sec80c" placeholder="Max 1,50,000">
+        </div>
+        <div class="input-group">
+            <label for="sec80d">Section 80D (Medical Insurance) (₹):</label>
+            <input type="number" id="sec80d" placeholder="e.g., 25000">
+        </div>
+        <div class="input-group">
+            <label for="homeLoanInterest">Home Loan Interest (Self-occupied) (₹):</label>
+            <input type="number" id="homeLoanInterest" placeholder="Max 2,00,000">
+        </div>
+         <div class="input-group">
+            <label for="otherDeductions">Other Deductions (80G, 80TTA, etc.) (₹):</label>
+            <input type="number" id="otherDeductions" placeholder="e.g., 10000">
+        </div>
+    </div>
+    
+    <!-- Trigger Button -->
+    <div class="input-group" style="justify-content: center; margin-top: 20px;">
+        <button id="calculateBtn" class="result-actions-button">Calculate Tax</button>
+    </div>
+
+    <!-- Results Comparison -->
+    <div id="resultsContainer" style="display: none;">
+        <h3 class="category-title">Tax Comparison</h3>
+        <div id="taxComparisonBlock">
+            <!-- This will be populated by JS -->
+        </div>
+        <div class="result highlight-result" id="savingsMessage"></div>
+    </div>
+
+
+    <div class="result-actions">
+      <button onclick="shareCalculation()">Share Results 📤</button>
+    </div>
+</div>
+</div>
+</div>
+</main>
+<script src="../js/theme.js"></script>
+<script src="../js/tax.js"></script>
+<script src="../js/utils.js"></script>
+<script>
+    function loadSharedValues() {
+        const params = new URLSearchParams(window.location.search);
+        if (params.get('active') !== 'tax') return;
+
+        const setValue = (id, paramName) => {
+            const el = document.getElementById(id);
+            const value = params.get(paramName);
+            if (el && value) {
+                el.value = value;
+            }
+        };
+
+        setValue('financialYear', 'fy');
+        setValue('basicSalary', 'salary');
+        setValue('interestIncome', 'interest');
+        setValue('stcgIncome', 'stcg');
+        setValue('ltcgIncome', 'ltcg');
+        setValue('cryptoIncome', 'crypto');
+        setValue('hra', 'hra');
+        setValue('sec80c', 'sec80c');
+        setValue('sec80d', 'sec80d');
+        setValue('homeLoanInterest', 'homeloan');
+        setValue('otherDeductions', 'otherded');
+
+        // If any value was loaded, trigger the calculation
+        if (params.has('salary')) {
+            document.getElementById('calculateBtn').click();
+        }
+    }
+    window.addEventListener('load', loadSharedValues);
+</script>
+</body>
+</html>

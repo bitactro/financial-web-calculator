@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SIP Calculator (2025) - Free Online Tools</title>
+<meta name="description" content="Calculate SIP returns instantly ✓ Monthly SIP Investment Calculator ✓ Free Online Tools with Charts">
+<meta name="keywords" content="SIP calculator, mutual fund SIP calculator, monthly SIP calculator, investment calculator">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div class="top-bar">
+<label class="switch"><input type="checkbox" id="themeToggle"><span class="slider"></span></label>
+<!-- FIX: Corrected the function call here -->
+<button onclick="shareCalculation()">Share 🔗</button>
+</div>
+<header>
+    <div class="brand-container">
+        <h1 class="brand-title">Bitactro.com</h1>
+    </div>
+    <h1>SIP Calculator</h1>
+    <h2>Calculate SIP Returns Instantly</h2>
+</header>
+<main>
+<div class="accordion">
+
+<div class="card">
+<div class="card-header">📈 SIP Calculator</div>
+<div class="card-content open">
+<label>Mode:</label>
+<select id="sipMode">
+  <option value="monthly">Monthly SIP</option>
+  <option value="lumpsum">Lumpsum</option>
+</select>
+<label>Amount (₹):</label>
+<div class="input-group">
+  <input type="range" id="sipAmount" min="500" max="1500000" value="5000" step="500">
+  <input type="number" id="sipAmountNum" value="5000" max="500000000" class="spotlight">
+</div>
+<label>Annual Return Rate (%):</label>
+<div class="input-group">
+  <input type="range" id="sipRate" min="1" max="70" value="12" step="0.1">
+  <input type="number" id="sipRateNum" value="12" min="1" max="70" step="0.1">
+</div>
+<label>Tenure (Years):</label>
+<div class="input-group">
+  <input type="range" id="sipYears" min="1" max="50" value="10">
+  <input type="number" id="sipYearsNum" value="10" min="1" max="50">
+</div>
+<div class="result" id="sipMaturity"></div>
+<div class="result" id="sipProfit"></div>
+<div class="result-actions">
+  <button onclick="shareCalculation()">Share Results 📤</button>
+</div>
+<canvas id="sipChart"></canvas>
+</div>
+</div>
+
+</div>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="../config.js"></script>
+<script src="../js/theme.js"></script>
+<script src="../js/utils.js"></script>
+<script src="../js/charts.js"></script>
+<script src="../js/sip.js"></script>
+
+<!-- FIX: Added this script block to read shared URL data -->
+<script>
+function loadSharedValues() {
+    const params = new URLSearchParams(window.location.search);
+    const sipMode = params.get('sip_mode');
+    const sipAmount = params.get('sip_amount');
+    const sipRate = params.get('sip_rate');
+    const sipYears = params.get('sip_years');
+    
+    if (sipMode) {
+        document.getElementById('sipMode').value = sipMode;
+    }
+    if (sipAmount) {
+        document.getElementById('sipAmount').value = parseFloat(sipAmount);
+        document.getElementById('sipAmountNum').value = formatIndianNumber(sipAmount);
+    }
+    if (sipRate) {
+        document.getElementById('sipRate').value = parseFloat(sipRate);
+        document.getElementById('sipRateNum').value = parseFloat(sipRate);
+    }
+    if (sipYears) {
+        document.getElementById('sipYears').value = parseFloat(sipYears);
+        document.getElementById('sipYearsNum').value = parseFloat(sipYears);
+    }
+    
+    // Trigger SIP calculations to update the view
+    if (sipAmount || sipRate || sipYears || sipMode) {
+        calculateSIP();
+    }
+}
+// Run the function when the page loads
+window.addEventListener('load', loadSharedValues);
+</script>
+
+</body>
+</html>

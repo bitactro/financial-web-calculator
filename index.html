@@ -3,322 +3,71 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SIP Calculator | Home Loan EMI Calculator (2025) - Free Online Tools</title>
-<meta name="description" content="Calculate SIP returns & Home Loan EMI instantly ✓ Monthly SIP Investment Calculator ✓ Home Loan EMI Calculator with Amortization Schedule ✓ Free Online Tools with Charts">
-<meta name="keywords" content="SIP calculator, mutual fund SIP calculator, home loan EMI calculator, EMI calculator with chart, monthly SIP calculator, loan EMI calculator, investment calculator">
-<meta name="author" content="Bitactro">
-<meta property="og:title" content="Financial Calculators - Home Loan EMI & SIP Calculator">
-<meta property="og:description" content="Calculate Home Loan EMI, SIP investments, and more with our free financial calculators. Make informed financial decisions with interactive tools.">
-<meta property="og:image" content="" id="ogImage">
-<meta property="og:url" content="" id="ogUrl">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="" id="canonicalUrl">
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#4b6cb7">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "Bitactro Financial Calculators",
-  "description": "Free online calculators for Home Loan EMI and SIP investment planning",
-  "applicationCategory": "FinanceApplication",
-  "operatingSystem": "Any",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "INR"
-  }
-}
-</script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<style>
-body{font-family:sans-serif;background:var(--bg);color:var(--text);margin:0;padding:20px;transition:.3s}
-:root.light{--bg:#f0f0f0;--text:#222;--card-bg:#fff;--header-bg:#ddd;--border:#ccc;}
-:root.dark{--bg:linear-gradient(135deg,#4b6cb7,#182848);--text:#fff;--card-bg:rgba(255,255,255,0.1);--header-bg:rgba(255,255,255,0.2);--border:rgba(255,255,255,0.3);}
-h1,h2{text-align:center;}
-.brand-title {
-    font-size: 2.5em;
-    font-weight: bold;
-    background: linear-gradient(45deg, #2196F3, #00BCD4);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-    margin: 0.5em 0;
-    position: relative;
-    display: inline-block;
-    padding: 0 20px;
-}
-.brand-title::before, .brand-title::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    width: 30px;
-    height: 2px;
-    background: #2196F3;
-    transform: translateY(-50%);
-}
-.brand-title::before {
-    left: -20px;
-}
-.brand-title::after {
-    right: -20px;
-}
-.brand-container {
-    text-align: center;
-    margin-bottom: 1em;
-    animation: fadeIn 1s ease-in;
-}
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-.top-bar{text-align:center;margin-bottom:10px;}
-.top-bar button{margin-left:10px;padding:6px 12px;border:none;border-radius:5px;background:var(--header-bg);color:var(--text);cursor:pointer;}
-.switch{position:relative;display:inline-block;width:50px;height:24px;vertical-align:middle;}
-.switch input{opacity:0;width:0;height:0;}
-.slider{position:absolute;cursor:pointer;top:0;left:0;right:0;bottom:0;background:#ccc;transition:.4s;border-radius:24px;}
-.slider:before{position:absolute;content:"";height:18px;width:18px;left:3px;bottom:3px;background:#fff;transition:.4s;border-radius:50%;}
-input:checked+.slider{background:#2196F3;}
-input:checked+.slider:before{transform:translateX(26px);}
-.accordion{max-width:600px;margin:20px auto;}
-.card{background:var(--card-bg);border-radius:10px;margin-bottom:10px;overflow:hidden;box-shadow:0 4px 8px rgba(0,0,0,0.3);}
-.card-header{padding:15px;cursor:pointer;font-size:1.2em;background:var(--header-bg);}
-.card-content{max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s ease;padding:0 15px;}
-.card-content.open{max-height:3000px;padding:15px;}
-.input-group{display:flex;align-items:center;gap:10px;margin-top:5px;}
-input[type=range]{flex:1;}
-input[type=number],select{width:120px;padding:4px;border:none;border-radius:5px;}
-:root.light input[type=number],
-:root.light input[type=range],
-:root.light select {
-  border: 1px solid #888;
-  background: #fff;
-  color: #222;
-}
-.result{margin-top:10px;font-size:1.1em;}
-.error{color:red;margin-top:5px;}
-table{width:100%;border-collapse:collapse;margin-top:5px;}
-th,td{border:1px solid var(--border);padding:4px;font-size:0.9em;text-align:right;}
-canvas{max-height:160px;width:100%!important;margin:10px auto;display:block;}
-.spotlight {
-  box-shadow: 0 0 8px #2196F3;
-  border: 2px solid #2196F3;
-  font-weight: bold;
-}
-.amount-spotlight {
-  margin-left: 8px;
-  font-size: 1.1em;
-  color: #2196F3;
-  font-weight: bold;
-}
-.highlight-result { background: #ffe066; color: #222; padding: 4px 8px; border-radius: 5px; font-weight: bold; }
-
-.result-actions {
-  margin-top: 15px;
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.result-actions button {
-  padding: 8px 16px;
-  border: none;
-  border-radius: 5px;
-  background: var(--header-bg);
-  color: var(--text);
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.result-actions button:hover {
-  opacity: 0.8;
-}
-</style>
+<title>Bitactro Finance - Your Hub for Financial Clarity & Tools</title>
+<meta name="description" content="Your go-to resource for financial tools, guides, and insights. Whether you're planning investments, managing loans, or seeking financial knowledge, we're here to help.">
+<meta name="keywords" content="finance, investment, financial tools, financial calculator, stock market, personal finance, income tax calculator">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/tiles.css">
 </head>
 <body>
 <div class="top-bar">
 <label class="switch"><input type="checkbox" id="themeToggle"><span class="slider"></span></label>
-<button onclick="shareLink()">Share 🔗</button>
 </div>
 <header>
     <div class="brand-container">
         <h1 class="brand-title">Bitactro.com</h1>
     </div>
-    <h1>Free SIP Calculator & Home Loan EMI Calculator</h1>
-    <h2>Calculate SIP Returns & Loan EMI Instantly</h2>
-    <p>Best online calculators for SIP investment planning and home loan EMI calculation. Get instant results with visual charts and detailed breakdowns.</p>
+    <h1>Bitactro Finance</h1>
+    <h2>Your Hub for Financial Clarity & Tools</h2>
 </header>
 <main>
-<div class="accordion">
 
-<!-- 🏠 Home Loan Calculator -->
-<div class="card">
-<div class="card-header" onclick="toggleCard(this)">🏠 Home Loan Calculator</div>
-<div class="card-content open">
-<label>Loan Amount (₹):</label>
-<div class="input-group">
-  <input type="range" id="loanAmount" min="0" max="30000000" value="50000" step="500">
-  <input type="text" id="loanAmountNum" value="5,0000" min="0" max="500000000" class="spotlight">
-</div>
-<label>Interest Rate (%):</label>
-<div class="input-group">
-  <input type="range" id="loanRate" min="1" max="25" value="8" step="0.1">
-  <input type="number" id="loanRateNum" value="8" min="1" max="25" step="0.1">
-</div>
-<label>Tenure (Years):</label>
-<div class="input-group">
-  <input type="range" id="loanYears" min="1" max="35" value="10" step="1" list="loanYearsTicks">
-  <input type="number" id="loanYearsNum" value="10" min="1" max="35">
-  <datalist id="loanYearsTicks">
-    <option value="1"></option>
-    <option value="2"></option>
-    <option value="3"></option>
-    <option value="4"></option>
-    <option value="5"></option>
-    <option value="6"></option>
-    <option value="7"></option>
-    <option value="8"></option>
-    <option value="9"></option>
-    <option value="10"></option>
-    <option value="11"></option>
-    <option value="12"></option>
-    <option value="13"></option>
-    <option value="14"></option>
-    <option value="15"></option>
-    <option value="16"></option>
-    <option value="17"></option>
-    <option value="18"></option>
-    <option value="19"></option>
-    <option value="20"></option>
-    <option value="21"></option>
-    <option value="22"></option>
-    <option value="23"></option>
-    <option value="24"></option>
-    <option value="25"></option>
-    <option value="26"></option>
-    <option value="27"></option>
-    <option value="28"></option>
-    <option value="29"></option>
-    <option value="30"></option>
-    <option value="31"></option>
-    <option value="32"></option>
-    <option value="33"></option>
-    <option value="34"></option>
-    <option value="35"></option>
-  </datalist>
-</div>
-<div class="result" id="loanEMI"></div>
-<div class="result" id="loanInterest"></div>
-<div class="result" id="loanTotal"></div>
-<div class="result-actions">
-  <button onclick="downloadEMICsv()">Download EMI CSV</button>
-  <button onclick="shareCalculation()">Share Results 📤</button>
-</div>
-<button onclick="document.getElementById('emiTable').style.display='table';document.getElementById('loadMoreEMI').style.display='inline-block';">Show EMI Table</button>
-<table id="emiTable" style="display:none;">
-<thead><tr><th>Month</th><th>EMI</th><th>Principal</th><th>Interest</th><th>Balance</th></tr></thead>
-<tbody></tbody>
-</table>
-<button id="loadMoreEMI" onclick="loadMoreEMI()" style="display:none;">Load more EMI</button>
-<canvas id="loanChart"></canvas>
-</div>
+<!-- Financial Tools Section -->
+<div class="content-block">
+    <h2 class="category-title">Financial Tools</h2>
+    <div class="calculator-tiles">
+        <a href="calculators/home_loan_calculator.html" class="tile">
+            <div class="tile-icon">🏠</div>
+            <div class="tile-title">Home Loan Calculator</div>
+        </a>
+        <a href="calculators/sip_calculator.html" class="tile">
+            <div class="tile-icon">📈</div>
+            <div class="tile-title">SIP Calculator</div>
+        </a>
+        <a href="calculators/tax_calculator.html" class="tile">
+            <div class="tile-icon">🧾</div>
+            <div class="tile-title">Income Tax Calculator</div>
+        </a>
+    </div>
 </div>
 
-<!-- 📈 SIP Calculator -->
-<div class="card">
-<div class="card-header" onclick="toggleCard(this)">📈 SIP Calculator</div>
-<div class="card-content">
-<label>Mode:</label>
-<select id="sipMode">
-  <option value="monthly">Monthly SIP</option>
-  <option value="lumpsum">Lumpsum</option>
-</select>
-<label>Amount (₹):</label>
-<div class="input-group">
-  <input type="range" id="sipAmount" min="500" max="1500000" value="5000" step="500">
-  <input type="number" id="sipAmountNum" value="5000" max="500000000" class="spotlight">
-</div>
-<label>Annual Return Rate (%):</label>
-<div class="input-group">
-  <input type="range" id="sipRate" min="1" max="70" value="12" step="0.1">
-  <input type="number" id="sipRateNum" value="12" min="1" max="70" step="0.1">
-</div>
-<label>Tenure (Years):</label>
-<div class="input-group">
-  <input type="range" id="sipYears" min="1" max="50" value="10">
-  <input type="number" id="sipYearsNum" value="10" min="1" max="50">
-</div>
-<div class="result" id="sipMaturity"></div>
-<div class="result" id="sipProfit"></div>
-<div class="result-actions">
-  <button onclick="shareCalculation()">Share Results 📤</button>
-</div>
-<canvas id="sipChart"></canvas>
-</div>
-</div>
-
-</div>
-
-<!-- FAQ Section for SEO -->
-<div class="card">
+<!-- FAQ Section with margin -->
+<div class="card content-section">
 <div class="card-header" onclick="toggleCard(this)">❓ Frequently Asked Questions</div>
 <div class="card-content">
     <div itemscope itemtype="https://schema.org/FAQPage">
+        <!-- FAQ Content remains here -->
         <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-            <h3 itemprop="name">What is SIP Calculator?</h3>
+            <h3 itemprop="name">What is an Income Tax Calculator?</h3>
             <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
                 <div itemprop="text">
-                    <p>A SIP Calculator is a free online tool that helps you calculate the returns on your Systematic Investment Plan (SIP). Enter your monthly investment amount, expected return rate, and investment period to instantly see your potential wealth growth and total investment returns.</p>
+                    <p>An Income Tax Calculator helps you estimate your tax liability for a financial year based on your income and deductions. It allows you to compare the old and new tax regimes to see which is more beneficial for you.</p>
                 </div>
             </div>
         </div>
-
         <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-            <h3 itemprop="name">How to calculate Home Loan EMI?</h3>
+            <h3 itemprop="name">What is a SIP Calculator?</h3>
             <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
                 <div itemprop="text">
-                    <p>To calculate your home loan EMI:</p>
-                    <ol>
-                        <li>Enter your loan amount</li>
-                        <li>Select your interest rate</li>
-                        <li>Choose loan tenure in years</li>
-                        <li>Get instant EMI amount, total interest payable, and amortization schedule</li>
-                    </ol>
-                    <p>Our calculator also shows you a detailed breakup of principal and interest components.</p>
+                    <p>A SIP Calculator is a tool that helps you estimate the future value of your monthly investments made through a Systematic Investment Plan (SIP).</p>
                 </div>
             </div>
         </div>
-
         <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-            <h3 itemprop="name">How is monthly SIP return calculated?</h3>
+            <h3 itemprop="name">How do I calculate my Home Loan EMI?</h3>
             <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
                 <div itemprop="text">
-                    <p>Monthly SIP returns are calculated using the compound interest formula for regular monthly investments. Our calculator considers:</p>
-                    <ul>
-                        <li>Monthly investment amount</li>
-                        <li>Expected annual return rate</li>
-                        <li>Investment duration</li>
-                        <li>Power of compounding</li>
-                    </ul>
-                    <p>The calculator shows both your total investment and the wealth gained through compounding.</p>
-                </div>
-            </div>
-        </div>
-
-        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-            <h3 itemprop="name">What are the benefits of using an EMI calculator?</h3>
-            <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <div itemprop="text">
-                    <p>Using our EMI calculator offers several advantages:</p>
-                    <ul>
-                        <li>Instantly calculate your monthly EMI</li>
-                        <li>View complete year-wise amortization schedule</li>
-                        <li>Compare different loan scenarios</li>
-                        <li>Plan your finances better with visual charts</li>
-                        <li>Make informed decisions about loan tenure and amount</li>
-                    </ul>
+                    <p>You can use a Home Loan EMI calculator by entering the loan amount, interest rate, and tenure to instantly find out your Equated Monthly Installment (EMI).</p>
                 </div>
             </div>
         </div>
@@ -327,156 +76,38 @@ canvas{max-height:160px;width:100%!important;margin:10px auto;display:block;}
 </div>
 
 <!-- Articles Section -->
-<div class="card">
+<div class="card content-section">
 <div class="card-header" onclick="toggleCard(this)">📚 Helpful Articles</div>
 <div class="card-content">
     <div style="display: grid; gap: 15px;">
-        <a href="articles/sip-vs-lumpsum" style="text-decoration: none;">
+        <a href="articles/new-tax-regime-changes.html" style="text-decoration: none;">
             <div style="padding: 15px; background: var(--card-bg); border-radius: 8px; transition: 0.3s;">
-                <h3 style="margin: 0 0 10px 0; color: #2196F3;">SIP vs Lumpsum Investment - Which is Better?</h3>
-                <p style="margin: 0; color: var(--text);">Learn the pros and cons of SIP and lumpsum investments, and find out which method suits your investment goals better.</p>
+                <h3 style="margin: 0 0 10px 0; color: #2196F3;">New Tax Regime Changes (FY 2025-26) Explained</h3>
+                <p style="margin: 0; color: var(--text);">Learn about the new tax slabs, higher standard deduction, and updated capital gains rules.</p>
             </div>
         </a>
-        <a href="articles/best-home-loan-rates" style="text-decoration: none;">
+        <a href="articles/sip-vs-lumpsum.html" style="text-decoration: none;">
+            <div style="padding: 15px; background: var(--card-bg); border-radius: 8px; transition: 0.3s;">
+                <h3 style="margin: 0 0 10px 0; color: #2196F3;">SIP vs Lumpsum Investment - Which is Better?</h3>
+                <p style="margin: 0; color: var(--text);">Learn the pros and cons of SIP and lumpsum investments.</p>
+            </div>
+        </a>
+        <a href="articles/best-home-loan-rates.html" style="text-decoration: none;">
             <div style="padding: 15px; background: var(--card-bg); border-radius: 8px; transition: 0.3s;">
                 <h3 style="margin: 0 0 10px 0; color: #2196F3;">How to Get the Best Home Loan Rate</h3>
-                <p style="margin: 0; color: var(--text);">Discover tips and strategies to secure the most competitive home loan interest rates and save money on your EMIs.</p>
+                <p style="margin: 0; color: var(--text);">Discover tips to secure competitive home loan interest rates.</p>
             </div>
         </a>
     </div>
 </div>
 </div>
-
-<script src="config.js"></script>
-<script>
-    // Update meta tags with domain from config
-    document.getElementById('ogImage').content = `https://${config.domain}${config.socialPreviewImage}`;
-    document.getElementById('ogUrl').content = `https://${config.domain}/calculator`;
-    document.getElementById('canonicalUrl').href = `https://${config.domain}/calculator`;
-
-    // Update schema.org data
-    const schema = document.querySelector('script[type="application/ld+json"]');
-    const schemaData = JSON.parse(schema.textContent);
-    schemaData.applicationCategory = "FinanceApplication";
-    schema.textContent = JSON.stringify(schemaData, null, 2);
-</script>
-<script src="theme.js"></script>
-<script src="utils.js"></script>
-<script src="charts.js"></script>
-<script src="loan.js"></script>
-<script src="sip.js"></script>
+</main>
+<footer>
+    <p>&copy; 2025 Bitactro.com. All Rights Reserved.</p>
+</footer>
+<script src="js/theme.js"></script>
 <script>
 function toggleCard(el){el.nextElementSibling.classList.toggle('open');}
-
-function getShareableLink() {
-    const params = new URLSearchParams();
-    
-    // Get currently open calculator
-    const openCalculator = document.querySelector('.card-content.open');
-    const openCalcHeader = openCalculator?.previousElementSibling.textContent || '';
-    params.set('active', openCalcHeader.includes('Home Loan') ? 'loan' : 'sip');
-    
-    // Always include loan calculator values
-    params.set('loan_amount', document.getElementById('loanAmountNum').value.replace(/,/g, ''));
-    params.set('loan_rate', document.getElementById('loanRateNum').value);
-    params.set('loan_years', document.getElementById('loanYearsNum').value);
-    
-    // Always include SIP calculator values
-    const sipMode = document.getElementById('sipMode').value;
-    params.set('sip_mode', sipMode);
-    params.set('sip_amount', document.getElementById('sipAmountNum').value.replace(/,/g, ''));
-    params.set('sip_rate', document.getElementById('sipRateNum').value);
-    params.set('sip_years', document.getElementById('sipYearsNum').value);
-    
-    return params.toString();
-}
-
-function loadSharedValues() {
-    const params = new URLSearchParams(window.location.search);
-    const active = params.get('active') || 'loan';
-    
-    // Load Loan Calculator Values
-    const loanAmount = params.get('loan_amount');
-    const loanRate = params.get('loan_rate');
-    const loanYears = params.get('loan_years');
-    
-    if (loanAmount) {
-        document.getElementById('loanAmount').value = parseFloat(loanAmount);
-        document.getElementById('loanAmountNum').value = formatIndianNumber(loanAmount);
-    }
-    if (loanRate) {
-        document.getElementById('loanRate').value = parseFloat(loanRate);
-        document.getElementById('loanRateNum').value = parseFloat(loanRate);
-    }
-    if (loanYears) {
-        document.getElementById('loanYears').value = parseFloat(loanYears);
-        document.getElementById('loanYearsNum').value = parseFloat(loanYears);
-    }
-    
-    // Trigger loan calculations
-    if (loanAmount || loanRate || loanYears) {
-        document.getElementById('loanAmountNum').dispatchEvent(new Event('input'));
-    }
-    
-    // Load SIP Calculator Values
-    const sipMode = params.get('sip_mode');
-    const sipAmount = params.get('sip_amount');
-    const sipRate = params.get('sip_rate');
-    const sipYears = params.get('sip_years');
-    
-    if (sipMode) {
-        document.getElementById('sipMode').value = sipMode;
-        document.getElementById('sipMode').dispatchEvent(new Event('change'));
-    }
-    if (sipAmount) {
-        document.getElementById('sipAmount').value = parseFloat(sipAmount);
-        document.getElementById('sipAmountNum').value = formatIndianNumber(sipAmount);
-    }
-    if (sipRate) {
-        document.getElementById('sipRate').value = parseFloat(sipRate);
-        document.getElementById('sipRateNum').value = parseFloat(sipRate);
-    }
-    if (sipYears) {
-        document.getElementById('sipYears').value = parseFloat(sipYears);
-        document.getElementById('sipYearsNum').value = parseFloat(sipYears);
-    }
-    
-    // Trigger SIP calculations
-    if (sipAmount || sipRate || sipYears || sipMode) {
-        document.getElementById('sipAmountNum').dispatchEvent(new Event('input'));
-    }
-    
-    // Open the active calculator
-    const calculators = document.querySelectorAll('.card-content');
-    calculators.forEach(content => content.classList.remove('open'));
-    
-    if (active === 'loan') {
-        document.querySelector('.card:first-child .card-content').classList.add('open');
-    } else {
-        document.querySelector('.card:last-child .card-content').classList.add('open');
-    }
-}
-
-function shareLink() {
-    const currentUrl = window.location.href.split('?')[0]; // Get base URL without parameters
-    const shareUrl = currentUrl + '?' + getShareableLink();
-    const shareText = 'Check out this financial calculator at Bitactro!';
-    
-    if (navigator.share) {
-        navigator.share({
-            title: 'Bitactro Calculator',
-            text: shareText,
-            url: shareUrl
-        });
-    } else {
-        prompt('Copy this link:', shareUrl);
-    }
-}
-
-// Load shared values when page loads
-window.addEventListener('load', loadSharedValues);
-
-if('serviceWorker'in navigator)navigator.serviceWorker.register('sw.js');
 </script>
 </body>
 </html>
