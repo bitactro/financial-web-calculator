@@ -1,4 +1,16 @@
 RewriteEngine On
+
+# Remove trailing slash except for root
+RewriteCond %{REQUEST_URI} !=/
+RewriteCond %{REQUEST_URI} (.+)/$
+RewriteRule ^ %1 [R=301,L]
+
+# Rewrite to .html if .html file exists
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}.html -f
 RewriteRule ^(.*)$ $1.html [L]
+
+# Custom error pages
+ErrorDocument 400 https://bitactro.com/errorPage/404
+ErrorDocument 500 https://bitactro.com/errorPage/500
+ErrorDocument 404 https://bitactro.com/errorPage/404
