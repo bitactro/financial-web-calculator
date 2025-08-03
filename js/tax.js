@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     { upTo: 900000, rate: 0.10 }, { upTo: 1200000, rate: 0.15 },
                     { upTo: 1500000, rate: 0.20 }, { upTo: Infinity, rate: 0.30 }
                 ],
-                standardDeduction: 50000,
+                standardDeduction: 75000,
                 rebateLimit: 700000,
                 ltcgExemption: 125000,
                 basicExemptionLimit: 300000,
